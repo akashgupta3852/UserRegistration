@@ -29,10 +29,18 @@ public class UserRegistration {
 		return false;
 	}
 	
-	public static boolean isValidMobileNumber(String MobileNumber) {
+	public static boolean isValidMobileNumber(String mobileNumber) {
 		String regex="^[0-9]{2}[\\s]{1}[6-9][0-9]{9}$";
 		Pattern pattern=Pattern.compile(regex);
-		if(pattern.matcher(MobileNumber).matches())
+		if(pattern.matcher(mobileNumber).matches())
+			return true;
+		return false;
+	}
+	
+	public static boolean isValidPassword(String password) {
+		String regex=".{8,}";
+		Pattern pattern=Pattern.compile(regex);
+		if(pattern.matcher(password).matches())
 			return true;
 		return false;
 	}
@@ -80,6 +88,16 @@ public class UserRegistration {
 			else
 			{
 				System.out.println("Sorry, the mobile number: "+mobile+" is invalid");
+				System.exit(0);;
+			}
+		
+		System.out.println("Enter the password:");
+		String passcode=scan.nextLine();	
+		if(isValidPassword(passcode))
+			System.out.println("The password: "+passcode+" is valid");
+			else
+			{
+				System.out.println("Sorry, the password: "+passcode+" is invalid");
 				System.exit(0);;
 			}
 	}
