@@ -1,9 +1,45 @@
 package com.userRegistraion;
 
+import java.util.*;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
+	public static List<String> emailIdList=new ArrayList<>();
+	
+	public static void addEmailInList() {
+		emailIdList.add("abc@yahoo.com");
+		emailIdList.add("abc-100@yahoo.com");
+		emailIdList.add("abc.100@yahoo.com");
+		emailIdList.add("abc111@abc.com");
+		emailIdList.add("abc-100@abc.net");
+		emailIdList.add("abc.100@abc.com.au");
+		emailIdList.add("abc@1.com");
+		emailIdList.add("abc+100@gmail.com");
+		emailIdList.add("abc");
+		emailIdList.add("abc@.com.my");
+		emailIdList.add("abc123@gmail.a");
+		emailIdList.add("abc123@.com");
+		emailIdList.add("abc123@.com.com");
+		emailIdList.add(".abc@abc.com");
+		emailIdList.add("abc()*@gmail.com");
+		emailIdList.add("abc@%*.com");
+		emailIdList.add("abc..2002@gmail.com");
+		emailIdList.add("abc.@gmail.com");
+		emailIdList.add("abc@abc@gmail.com");
+		emailIdList.add("abc@gmail.com.1a");
+		emailIdList.add("abc@gmail.com.aa.au");
+		emailIdList.add("abc@gmail.com.com");
+	}
+	
+	public static void checkAllEmailSamples() {
+		for(String id : emailIdList) {
+			if(isValidEmailId(id))
+				System.out.println("The email id: "+id+" is valid");
+			else
+				System.out.println("Sorry, the email id: "+id+" is invalid");
+		}
+	}
 	
 	public static boolean isValidFirstName(String firstName) {
 		String regex="^[A-Z][a-z]{2,}";
@@ -57,6 +93,11 @@ public class UserRegistration {
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration Problem");
 
+		System.out.println("Checking all email samples:");
+		addEmailInList();
+		checkAllEmailSamples();
+
+		
 		Scanner scan=new Scanner(System.in);
 		
 		System.out.println("Enter the first name:");
