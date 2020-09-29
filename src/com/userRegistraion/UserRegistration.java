@@ -40,10 +40,13 @@ public class UserRegistration {
 	public static boolean isValidPassword(String password) {
 		String regex=".{8,}";
 		String regex1="[A-Z]";
+		String regex2="[0-9]";
 		Pattern pattern=Pattern.compile(regex);
 		Pattern pattern1=Pattern.compile(regex1);
+		Pattern pattern2=Pattern.compile(regex2);
 		if(pattern.matcher(password).matches())
 			if(pattern1.matcher(password).find())
+				if(pattern2.matcher(password).find())
 			return true;
 		return false;
 	}
