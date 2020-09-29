@@ -41,12 +41,15 @@ public class UserRegistration {
 		String regex=".{8,}";
 		String regex1="[A-Z]";
 		String regex2="[0-9]";
+		String regex3="\\W";
 		Pattern pattern=Pattern.compile(regex);
 		Pattern pattern1=Pattern.compile(regex1);
 		Pattern pattern2=Pattern.compile(regex2);
+		Pattern pattern3=Pattern.compile(regex3);
 		if(pattern.matcher(password).matches())
 			if(pattern1.matcher(password).find())
 				if(pattern2.matcher(password).find())
+					if(pattern3.matcher(password).find())					
 			return true;
 		return false;
 	}
