@@ -10,6 +10,42 @@ public class UserRegistration {
 	private static final String MOBILE_NUMBER_PATTERN="^[0-9]{2}[\\s]{1}[6-9][0-9]{9}$";
 	private static final String PASSWORD_PATTERN="(?=.*[A-Z])(?=.*[0-9])(?=.*[\\W]).{8,}";
 	
+	private static List<String> emailIdList=new ArrayList<>();
+	
+	public static void addEmailInList() {
+		emailIdList.add("abc@yahoo.com");
+		emailIdList.add("abc-100@yahoo.com");
+		emailIdList.add("abc.100@yahoo.com");
+		emailIdList.add("abc111@abc.com");
+		emailIdList.add("abc-100@abc.net");
+		emailIdList.add("abc.100@abc.com.au");
+		emailIdList.add("abc@gmail.com.com");
+		emailIdList.add("abc@1.com");
+		emailIdList.add("abc+100@gmail.com");
+		emailIdList.add("abc");
+		emailIdList.add("abc@.com.my");
+		emailIdList.add("abc123@gmail.a");
+		emailIdList.add("abc123@.com");
+		emailIdList.add("abc123@.com.com");
+		emailIdList.add(".abc@abc.com");
+		emailIdList.add("abc()*@gmail.com");
+		emailIdList.add("abc@%*.com");
+		emailIdList.add("abc..2002@gmail.com");
+		emailIdList.add("abc.@gmail.com");
+		emailIdList.add("abc@abc@gmail.com");
+		emailIdList.add("abc@gmail.com.1a");
+		emailIdList.add("abc@gmail.com.aa.au");
+	}
+	
+	public static void checkAllEmailSamples() {
+		for(String id : emailIdList) {
+			if(isValidEmailId(id))
+				System.out.println("The email id: "+id+" is valid");
+			else
+				System.out.println("Sorry, the email id: "+id+" is invalid");
+		}
+	}
+	
 	public static boolean isValidFirstName(String firstName) {
 		Pattern pattern=Pattern.compile(NAME_PATTERN);
 		if(pattern.matcher(firstName).matches())
@@ -48,6 +84,10 @@ public class UserRegistration {
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration Problem");
 
+		System.out.println("Checking all email samples:");
+		addEmailInList();
+		checkAllEmailSamples();
+		
 		Scanner scan=new Scanner(System.in);
 		
 		System.out.println("Enter the first name:");
