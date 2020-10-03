@@ -4,46 +4,43 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
+
+	private static final String NAME_PATTERN = "^[A-Z][a-z]{2,}";
+	private static final String EMAIL_ADDRESS_PATTERN="^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$";
+	private static final String MOBILE_NUMBER_PATTERN="^[0-9]{2}[\\s]{1}[6-9][0-9]{9}$";
+	private static final String PASSWORD_PATTERN="(?=.*[A-Z]).{8,}";
 	
 	public static boolean isValidFirstName(String firstName) {
-		String regex="^[A-Z][a-z]{2,}";
-		Pattern pattern=Pattern.compile(regex);
+		Pattern pattern=Pattern.compile(NAME_PATTERN);
 		if(pattern.matcher(firstName).matches())
 			return true;
 		return false;
 	}
 
 	public static boolean isValidLastName(String lastName) {
-		String regex="^[A-Z][a-z]{2,}";
-		Pattern pattern=Pattern.compile(regex);
+		Pattern pattern=Pattern.compile(NAME_PATTERN);
 		if(pattern.matcher(lastName).matches())
 			return true;
 		return false;
 	}
 	
 	public static boolean isValidEmailId(String emailId) {
-		String regex="^[a-zA-Z0-9]+([+_.-][a-zA-Z0-9]+)*[@][a-zA-Z0-9]+[.][a-zA-Z]{2,4}([.][a-zA-Z]{2})?$";
-		Pattern pattern=Pattern.compile(regex);
+		Pattern pattern=Pattern.compile(EMAIL_ADDRESS_PATTERN);
 		if(pattern.matcher(emailId).matches())
 			return true;
 		return false;
 	}
 	
 	public static boolean isValidMobileNumber(String mobileNumber) {
-		String regex="^[0-9]{2}[\\s]{1}[6-9][0-9]{9}$";
-		Pattern pattern=Pattern.compile(regex);
+		Pattern pattern=Pattern.compile(MOBILE_NUMBER_PATTERN);
 		if(pattern.matcher(mobileNumber).matches())
 			return true;
 		return false;
 	}
 	
 	public static boolean isValidPassword(String password) {
-		String regex=".{8,}";
-		String regex1="[A-Z]";
-		Pattern pattern=Pattern.compile(regex);
-		Pattern pattern1=Pattern.compile(regex1);
+		Pattern pattern=Pattern.compile(PASSWORD_PATTERN);
 		if(pattern.matcher(password).matches())
-			if(pattern1.matcher(password).find())
 			return true;
 		return false;
 	}
